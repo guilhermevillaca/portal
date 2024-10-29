@@ -30,26 +30,26 @@ public class DBInsert implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Categoria cat1 = new Categoria("Eletrônicos", "Produtos eletrônicos em geral", null);
+        Categoria cat1 = new Categoria("Tecnologia", "Notícias sobre tecnologia", null);
         categoriaRepository.save(cat1);
-        Categoria cat2 = new Categoria("Roupas", "Roupas para todas as estações", null);
+        Categoria cat2 = new Categoria("Esporte", "Notícias sobre esporte", null);
         categoriaRepository.save(cat2);
         // Categorias Filhas
-        Categoria cat3 = new Categoria("Celulares", "Smartphones e acessórios", cat1);
+        Categoria cat3 = new Categoria("Politica", "Notícias sobre politica", null);
         categoriaRepository.save(cat3);
-        Categoria cat4 = new Categoria("TVs", "Televisões de alta definição", cat1);
+        Categoria cat4 = new Categoria("Economia", "Notícias sobre economia", null);
         categoriaRepository.save(cat4);
-        Categoria cat5 = new Categoria("Camisetas", "Camisetas casuais", cat2);
+        Categoria cat5 = new Categoria("Saude", "Notícias saude ", null);
         categoriaRepository.save(cat5);
-        Categoria cat6 = new Categoria("Calças", "Calças jeans e de tecido", cat2);
+        Categoria cat6 = new Categoria("Cinema", "Calças jeans e de tecido", null);
         categoriaRepository.save(cat6);
-        Categoria cat7 = new Categoria("Capas de celular", "Capas protetoras para smartphones", cat3);
+        Categoria cat7 = new Categoria("Televisão", "Capas protetoras para smartphones", null);
         categoriaRepository.save(cat7);
-        Categoria cat8 = new Categoria("Fones de ouvido", "Fones de ouvido com fio e sem fio", cat3);
+        Categoria cat8 = new Categoria("Futebol", "Noticia sobre futebol", cat1);
         categoriaRepository.save(cat8);
-        Categoria cat9 = new Categoria("Smart TVs", "Televisões inteligentes", cat4);
+        Categoria cat9 = new Categoria("Campeonato Brasileiro Série A", "Noticias sobre o campeonato brasileiro", cat8);
         categoriaRepository.save(cat9);
-        Categoria cat10 = new Categoria("Roupas íntimas", "Roupas íntimas para todas as idades", cat5);
+        Categoria cat10 = new Categoria("Libertadores", "Notícias sobre a Libertadores", cat8);
         categoriaRepository.save(cat10);
 
         List<Categoria> cats = Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10);
@@ -71,7 +71,7 @@ public class DBInsert implements CommandLineRunner {
             noticia.setData_publicacao(calendar.getTime());
 
             // URL de imagem aleatória
-            noticia.setImagem_url("https://site.com/imagem" + (random.nextInt(50) + 1) + ".jpg");
+            noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/200/300");
 
             // Escolhe uma categoria aleatória
             noticia.setCategoria(cats.get(random.nextInt(cats.size())));
