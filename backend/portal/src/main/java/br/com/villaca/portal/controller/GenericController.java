@@ -48,10 +48,10 @@ public class GenericController<T, ID> {
     }
 
     @RequestMapping(value = "remover/{id}", method = RequestMethod.DELETE)
-    public ResponseEntity<T> remover(@PathVariable(value="id") ID id, @RequestBody T removeObject){
+    public ResponseEntity<T> remover(@PathVariable(value="id") ID id){
         Optional<T> object = repository.findById(id);
         if(object.isPresent()){
-            repository.delete(removeObject);
+            repository.delete(object.get());
             return new ResponseEntity<>(HttpStatus.OK);
         }else{
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
