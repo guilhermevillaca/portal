@@ -1,14 +1,18 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CategoriaService } from '../../service/categoria.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
 import { Categoria } from '../../model/categoria.model';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-categoria-form',
   standalone: true,
-  imports: [],
+  imports: [FormsModule,
+    ReactiveFormsModule,
+    NgFor,
+    RouterModule],
   templateUrl: './categoria-form.component.html',
   styleUrl: './categoria-form.component.css'
 })
@@ -63,18 +67,31 @@ export class CategoriaFormComponent implements OnInit{
     let nome = this.form.controls.nome.value;
     let descricao = this.form.controls.descricao.value;
     let categoria_pai = this.form.controls.categoria.value;
+    console.log(categoria_pai);
+    let categoria: Categoria;
 
-    let categoria: Categoria = {
-      "id": id_,
-      "nome": nome,
-      "descricao": descricao,
-      "categoria": {
-        "id": categoria_pai,        
-        "nome": null,
-        "descricao": null,
-        "categoria": null
-      }
-    };
+    if(categoria_pai){
+      console.log('entrou if')
+      categoria = {
+        "id": id_,
+        "nome": nome,
+        "descricao": descricao,
+        "categoria": {
+          "id": categoria_pai,        
+          "nome": null,
+          "descricao": null,
+          "categoria": null
+        }
+      };   
+    }else {
+      console.log('entrou else')
+      categoria = {
+        "id": id_,
+        "nome": nome,
+        "descricao": descricao
+      };   
+    }
+   
 
     console.log(categoria);
 

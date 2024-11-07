@@ -28,8 +28,8 @@ public class Categoria {
     @Column(name = "descricao")
     private String descricao;
 
-    @JoinColumn(name = "categoria_pai_id", referencedColumnName = "id")
-    @ManyToOne
+    @JoinColumn(name = "categoria_pai_id", referencedColumnName = "id", nullable=true)
+    @ManyToOne(optional=true)
     private Categoria categoria;
 
     public Categoria(String nome, String descricao, Categoria categoria) {
