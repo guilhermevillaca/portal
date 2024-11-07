@@ -1,12 +1,16 @@
 import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Categoria } from '../model/categoria.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+
+interface Identifiable {
+  id: number | null;
+}
+
+export class GenericServiceService<T extends Identifiable> {
 
   private http: HttpClient;
 
@@ -22,17 +26,17 @@ export class CategoriaService {
     return this.http.get('http://localhost:8080/categoria/listar/'+id).pipe(map(response=>response));    
   }
 
-  public salvar(categoria: Categoria): Observable<Categoria>{
+  public salvar(object: T): Observable<T>{
     const headers = new HttpHeaders();
-    headers.set("Content-Type", "Application/json");
-    if(categoria.id !== null){
-      return this.http.put<Categoria>(`http://localhost:8080/categoria/atualizar/${categoria.id}`, categoria, {headers});
+    headers.set("Content-Type", "Application/json");    
+    if(object.id !== null){
+      return this.http.put<T>(`http://localhost:8080/categoria/atualizar/${object.id}`, object, {headers});
     }
-    return this.http.post<Categoria>('http://localhost:8080/categoria/novo', categoria, {headers});  
+    return this.http.post<T>('http://localhost:8080/categoria/novo', object, {headers});  
     
   }
 
   public remover(id:number){
-    return this.http.delete<Categoria>('http://localhost:8080/categoria/remover/'+id).pipe(map(response=>response));
+    return this.http.delete<T>('http://localhost:8080/categoria/remover/'+id).pipe(map(response=>response));
   }
 }
