@@ -9,6 +9,11 @@ import { GenericServiceService } from './generic-service.service';
 })
 export class CategoriaService extends GenericServiceService<Categoria> {
 
+  constructor(handler: HttpBackend) { 
+    let url = "http://localhost:8080/categoria";
+    super(handler, url);
+  }
+
   /*private http: HttpClient;
 
   constructor(handler: HttpBackend) { 
