@@ -1,5 +1,6 @@
 package br.com.villaca.portal.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -31,7 +32,7 @@ public class Noticia {
     private String corpo;
 
     @Column(name = "data_publicacao")
-    private Date data_publicacao;
+    private LocalDateTime data_publicacao;
 
     @Column(name = "imagem_url")
     private String imagem_url;
@@ -39,5 +40,9 @@ public class Noticia {
     @JoinColumn(name = "id_categoria", referencedColumnName = "id")
     @ManyToOne
     private Categoria categoria;
+
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    @ManyToOne
+    private Usuario usuario;  
 
 }

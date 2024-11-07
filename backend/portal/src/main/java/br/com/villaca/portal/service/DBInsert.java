@@ -1,5 +1,6 @@
 package br.com.villaca.portal.service;
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -68,7 +69,7 @@ public class DBInsert implements CommandLineRunner {
             // Data aleatória para publicação
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DAY_OF_YEAR, -random.nextInt(365)); // data no último ano
-            noticia.setData_publicacao(calendar.getTime());
+            noticia.setData_publicacao(LocalDateTime.now());
 
             // URL de imagem aleatória
             noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/200/300");
