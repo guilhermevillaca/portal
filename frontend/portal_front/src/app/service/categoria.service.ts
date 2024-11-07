@@ -2,13 +2,14 @@ import { HttpBackend, HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Categoria } from '../model/categoria.model';
 import { Observable } from 'rxjs';
+import { GenericServiceService } from './generic-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class CategoriaService extends GenericServiceService<Categoria> {
 
-  private http: HttpClient;
+  /*private http: HttpClient;
 
   constructor(handler: HttpBackend) { 
     this.http = new HttpClient(handler);
@@ -34,5 +35,5 @@ export class CategoriaService {
 
   public remover(id:number){
     return this.http.delete<Categoria>('http://localhost:8080/categoria/remover/'+id).pipe(map(response=>response));
-  }
+  }*/
 }
