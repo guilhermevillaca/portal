@@ -1,1 +1,30 @@
-<p>noticia works!</p>
+
+
+<a routerLink="novo" class="btn btn-primary left">Novo</a>
+
+<table class="table">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Título</th>
+            <th scope="col">Corpo</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let noticia of noticia$">
+            <th>{{noticia.id}}</th>
+            <th>{{noticia.titulo}}</th>
+            <th>{{noticia.corpo}}</th>
+            <th>{{noticia.categoria?.nome}}</th>
+            <th>
+                <a (click)="editar(noticia.id)"  class="btn btn-primary">Editar</a>&nbsp;
+                <a (click)="remover(noticia.id)" class="btn btn-danger">Excluir</a>                
+            </th>
+        </tr>
+    </tbody>
+
+</table>
