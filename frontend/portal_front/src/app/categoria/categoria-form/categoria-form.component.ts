@@ -104,7 +104,7 @@ export class CategoriaFormComponent implements OnInit{
       erro => {
         console.log(erro);
       }
-    );;
+    );
   }
 
 }
