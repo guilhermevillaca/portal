@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 
 
-interface Identifiable {
+interface Identificador {
   id: number | null;
 }
 
 @Injectable({
   providedIn: 'root'
 })
-export class GenericServiceService<T extends Identifiable> {
+export class GenericServiceService<T extends Identificador> {
 
   private http: HttpClient;
 
