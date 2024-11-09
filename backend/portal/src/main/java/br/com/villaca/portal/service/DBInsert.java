@@ -31,26 +31,26 @@ public class DBInsert implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Categoria cat1 = new Categoria("Tecnologia", "Notícias sobre tecnologia", null);
+        Categoria cat1 = new Categoria("Tecnologia", "Notícias sobre tecnologia", null, true);
         categoriaRepository.save(cat1);
-        Categoria cat2 = new Categoria("Esporte", "Notícias sobre esporte", null);
+        Categoria cat2 = new Categoria("Esporte", "Notícias sobre esporte", null, true);
         categoriaRepository.save(cat2);
         // Categorias Filhas
-        Categoria cat3 = new Categoria("Politica", "Notícias sobre politica", null);
+        Categoria cat3 = new Categoria("Politica", "Notícias sobre politica", null, true);
         categoriaRepository.save(cat3);
-        Categoria cat4 = new Categoria("Economia", "Notícias sobre economia", null);
+        Categoria cat4 = new Categoria("Economia", "Notícias sobre economia", null, true);
         categoriaRepository.save(cat4);
-        Categoria cat5 = new Categoria("Saude", "Notícias saude ", null);
+        Categoria cat5 = new Categoria("Saude", "Notícias saude ", null, true);
         categoriaRepository.save(cat5);
-        Categoria cat6 = new Categoria("Cinema", "Calças jeans e de tecido", null);
+        Categoria cat6 = new Categoria("Cinema", "Calças jeans e de tecido", null, false);
         categoriaRepository.save(cat6);
-        Categoria cat7 = new Categoria("Televisão", "Capas protetoras para smartphones", null);
+        Categoria cat7 = new Categoria("Televisão", "Capas protetoras para smartphones", null, false);
         categoriaRepository.save(cat7);
-        Categoria cat8 = new Categoria("Futebol", "Noticia sobre futebol", cat1);
+        Categoria cat8 = new Categoria("Futebol", "Noticia sobre futebol", cat1, false);
         categoriaRepository.save(cat8);
-        Categoria cat9 = new Categoria("Campeonato Brasileiro Série A", "Noticias sobre o campeonato brasileiro", cat8);
+        Categoria cat9 = new Categoria("Campeonato Brasileiro Série A", "Noticias sobre o campeonato brasileiro", cat8, false);
         categoriaRepository.save(cat9);
-        Categoria cat10 = new Categoria("Libertadores", "Notícias sobre a Libertadores", cat8);
+        Categoria cat10 = new Categoria("Libertadores", "Notícias sobre a Libertadores", cat8, false);
         categoriaRepository.save(cat10);
 
         List<Categoria> cats = Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10);

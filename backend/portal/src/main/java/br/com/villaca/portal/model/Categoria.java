@@ -28,13 +28,17 @@ public class Categoria {
     @Column(name = "descricao")
     private String descricao;
 
+    @Column(name="destaque")
+    private boolean destaque;
+
     @JoinColumn(name = "categoria_pai_id", referencedColumnName = "id", nullable=true)
     @ManyToOne(optional=true)
     private Categoria categoria;
 
-    public Categoria(String nome, String descricao, Categoria categoria) {
+    public Categoria(String nome, String descricao, Categoria categoria, boolean destaque) {
         this.nome = nome;
         this.descricao = descricao;
         this.categoria = categoria;
+        this.destaque = destaque;
     }
 }

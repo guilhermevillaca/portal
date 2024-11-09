@@ -3,4 +3,5 @@ export class Categoria {
     nome!: string|null;
     descricao!: string|null;
     categoria?: Categoria|null;
+    destaque!: string|null;
 }

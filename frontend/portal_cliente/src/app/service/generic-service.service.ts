@@ -12,7 +12,7 @@ interface Identificador {
 })
 export class GenericServiceService<T extends Identificador> {
 
-  private http: HttpClient;
+  protected http: HttpClient;
 
   constructor(handler: HttpBackend, protected url: String) {
     this.http = new HttpClient(handler);
