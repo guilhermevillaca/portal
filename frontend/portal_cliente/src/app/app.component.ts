@@ -22,11 +22,11 @@ export class AppComponent  implements OnInit{
   }
 
   ngOnInit(): void {
+    console.log("teste");
     this.getCategorias();
   }
   
   public async getCategorias(){
     this.categoria$ = await lastValueFrom(this.categoriaService.getDestaques());
-    console.log(this.categoria$);
   }
 }

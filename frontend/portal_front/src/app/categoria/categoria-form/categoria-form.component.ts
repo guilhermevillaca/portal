@@ -18,7 +18,7 @@ import { NgFor } from '@angular/common';
 })
 export class CategoriaFormComponent implements OnInit{
 
-  cat$: any;
+  categoria$: any;
   categoria: any;
   private activateRoute = inject(ActivatedRoute);
   id: any;
@@ -44,7 +44,7 @@ export class CategoriaFormComponent implements OnInit{
   }
 
   public async getCategorias(){
-    this.cat$ = await lastValueFrom(this.categoriaService.get());
+    this.categoria$ = await lastValueFrom(this.categoriaService.get());
   }
 
   public async getCategoriaById(){
@@ -70,8 +70,7 @@ export class CategoriaFormComponent implements OnInit{
     console.log(categoria_pai);
     let categoria: Categoria;
 
-    if(categoria_pai){
-      console.log('entrou if')
+    if(categoria_pai){      
       categoria = {
         "id": id_,
         "nome": nome,
@@ -83,8 +82,7 @@ export class CategoriaFormComponent implements OnInit{
           "categoria": null
         }
       };   
-    }else {
-      console.log('entrou else')
+    }else {      
       categoria = {
         "id": id_,
         "nome": nome,

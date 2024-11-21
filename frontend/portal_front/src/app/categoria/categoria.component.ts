@@ -13,7 +13,7 @@ import { NgFor } from '@angular/common';
 })
 export class CategoriaComponent implements OnInit{
 
-  cat$: any;
+  categoria$: any;
   categoria: any;
 
   constructor(private categoriaService: CategoriaService, private router: Router){
@@ -24,7 +24,7 @@ export class CategoriaComponent implements OnInit{
   }
 
   public async getCategoria(){
-    this.cat$ = await lastValueFrom(this.categoriaService.get());
+    this.categoria$ = await lastValueFrom(this.categoriaService.get());
     
   }
 
@@ -37,7 +37,7 @@ export class CategoriaComponent implements OnInit{
 
   public async remover(id: number){
     let ret = await lastValueFrom(this.categoriaService.remover(id));
-    this.cat$ = await lastValueFrom(this.categoriaService.get());
+    this.categoria$ = await lastValueFrom(this.categoriaService.get());
   }
 
 }

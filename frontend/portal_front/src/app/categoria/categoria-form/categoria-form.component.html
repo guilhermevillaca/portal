@@ -4,7 +4,7 @@
 
     <div class="mb-3">        
         <label for="id"></label>
-        <input id="id" type="text" class="form-control" placeholder="ID" [formControl]="form.controls.id">
+        <input id="id" type="text" class="form-control" placeholder="ID" [formControl]="form.controls.id" readonly>
     </div>
 
     <div class="mb-3">
@@ -19,8 +19,8 @@
 
     <div class="mb-3">        
         <select [formControl]="form.controls.categoria" class="form-select">
-            <option *ngFor="let cat of cat$" value="{{cat.id}}">
-                {{cat.nome}}
+            <option *ngFor="let categoria of categoria$" value="{{categoria.id}}">
+                {{categoria.nome}}
             </option>
         </select>
     </div>
