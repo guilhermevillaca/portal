@@ -21,8 +21,7 @@ export class AppComponent  implements OnInit{
 
   }
 
-  ngOnInit(): void {
-    console.log("teste");
+  ngOnInit(): void {    
     this.getCategorias();
   }
   
