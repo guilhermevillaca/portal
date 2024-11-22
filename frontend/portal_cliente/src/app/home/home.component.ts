@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NoticiaService } from '../service/noticia.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { last, lastValueFrom } from 'rxjs';
 import { CategoriaService } from '../service/categoria.service';
 import { NgFor } from '@angular/common';
@@ -14,6 +14,8 @@ import { NgFor } from '@angular/common';
 })
 export class HomeComponent  implements OnInit{
 
+  private activateRoute = inject(ActivatedRoute);
+  id:any;
   noticia$: any;
   categoria$: any;
 
@@ -23,12 +25,19 @@ export class HomeComponent  implements OnInit{
 
   ngOnInit(): void {
     console.log("teste");
+    this.id = this.activateRoute.snapshot.params['id'];    
     this.getNoticias();
+
   }
 
   public async getNoticias(){
-    console.log('teste');
-    this.noticia$ = await lastValueFrom(this.noticiaService.get());
+    console.log(this.id);
+    if(this.id){
+      this.noticia$ = await lastValueFrom(this.noticiaService.listarNoticiasPorCategoria(this.id));
+    }else{
+      this.noticia$ = await lastValueFrom(this.noticiaService.get());
+    }
+    
   }
 
 

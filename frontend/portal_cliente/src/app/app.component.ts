@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
+import { Route, Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from '@angular/router';
 import { CategoriaService } from './service/categoria.service';
 import { lastValueFrom, map } from 'rxjs';
 import { NgFor, NgIf } from '@angular/common';
@@ -17,7 +17,7 @@ export class AppComponent  implements OnInit{
 
   categoria$: any;
 
-  constructor(private categoriaService: CategoriaService){
+  constructor(private categoriaService: CategoriaService, private router: Router){
 
   }
 
@@ -28,5 +28,9 @@ export class AppComponent  implements OnInit{
   
   public async getCategorias(){
     this.categoria$ = await lastValueFrom(this.categoriaService.getDestaques());
+  }
+
+  public abrirCategoria(id: any){
+    this.router.navigate(['noticias/', id]);
   }
 }
