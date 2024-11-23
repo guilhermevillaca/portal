@@ -17,6 +17,7 @@ export class HomeComponent  implements OnInit{
   id:any;
   noticia$: any;
   categoria$: any;
+  ultimaNoticia: any;
 
   constructor(private noticiaService: NoticiaService, private categoriaService: CategoriaService, private router: Router, private activatedRoute: ActivatedRoute){       
   }
@@ -25,7 +26,9 @@ export class HomeComponent  implements OnInit{
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id']; // Captura o parâmetro 'id'      
       this.getNoticias();
+      this.getUltimaNoticia();
     });
+
   }
 
   public async getNoticias(){    
@@ -35,6 +38,15 @@ export class HomeComponent  implements OnInit{
       this.noticia$ = await lastValueFrom(this.noticiaService.get());
     }
     
+  }
+
+  public async getUltimaNoticia(){
+    console.log(this.id);
+    if(this.id){
+      this.ultimaNoticia = await lastValueFrom(this.noticiaService.findOneByUltimaNoticiaByCategoria(this.id));
+    }else{
+      this.ultimaNoticia = await lastValueFrom(this.noticiaService.findOneByUltimaNoticiaByTodas());
+    }
   }
 
   public abrirDetalhes(id: any){

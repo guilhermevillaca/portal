@@ -69,7 +69,7 @@ public class DBInsert implements CommandLineRunner {
             // Data aleatória para publicação
             Calendar calendar = Calendar.getInstance();
             calendar.add(Calendar.DAY_OF_YEAR, -random.nextInt(365)); // data no último ano
-            noticia.setData_publicacao(LocalDateTime.now());
+            noticia.setDataPublicacao(LocalDateTime.now());
 
             // URL de imagem aleatória
             noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/200/300");

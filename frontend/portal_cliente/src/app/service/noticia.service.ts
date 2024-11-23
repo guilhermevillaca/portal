@@ -17,4 +17,12 @@ export class NoticiaService extends GenericService<Noticia> {
   public listarNoticiasPorCategoria(id_categoria: any){
     return this.http.get(this.url + '/listarNoticiasPorCategoria/' + id_categoria).pipe(map(response => response));
   }
+
+  public findOneByUltimaNoticiaByCategoria(id_categoria: any){
+    return this.http.get(this.url + '/findTopByCategoriaIdOrderByDataPublicacaoDesc/' + id_categoria).pipe(map(response => response));
+  }
+
+  public findOneByUltimaNoticiaByTodas(){
+    return this.http.get(this.url + '/findTopByOrderByDataPublicacaoDesc').pipe(map(response => response));
+  }
 }

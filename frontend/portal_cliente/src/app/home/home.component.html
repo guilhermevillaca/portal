@@ -1,6 +1,29 @@
+<div class="ultimaNoticia">
+
+
+
+  <a class="linkNoticia" (click)="abrirDetalhes(ultimaNoticia.id)">
+
+    <img src="{{ultimaNoticia?.imagem_url}}" alt="{{ultimaNoticia?.titulo}}">
+
+    <h4>{{ultimaNoticia?.titulo}}</h4>
+    
+    <p>{{ultimaNoticia?.corpo}}</p>
+  </a>
+
+</div>
+
+
+<hr>
+
 <div *ngFor="let noticia of noticia$">    
 
+    
+
     <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
+
+      <img src="{{noticia?.imagem_url}}" alt="{{noticia.titulo}}">
+
       <h4>{{noticia.titulo}}</h4>
       
       <p>{{noticia.corpo}}</p>

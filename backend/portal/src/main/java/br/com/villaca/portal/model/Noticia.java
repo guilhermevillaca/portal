@@ -1,7 +1,6 @@
 package br.com.villaca.portal.model;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +31,7 @@ public class Noticia {
     private String corpo;
 
     @Column(name = "data_publicacao")
-    private LocalDateTime data_publicacao;
+    private LocalDateTime dataPublicacao;
 
     @Column(name = "imagem_url")
     private String imagem_url;

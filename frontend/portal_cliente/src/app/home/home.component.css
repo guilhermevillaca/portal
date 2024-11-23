@@ -7,3 +7,7 @@
 .linkNoticia:hover{
     text-decoration: underline;
 }
+
+.ultimaNoticia img{
+    max-width: 100%;
+}
