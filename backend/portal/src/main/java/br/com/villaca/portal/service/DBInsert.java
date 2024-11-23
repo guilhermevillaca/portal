@@ -72,7 +72,7 @@ public class DBInsert implements CommandLineRunner {
             noticia.setDataPublicacao(LocalDateTime.now());
 
             // URL de imagem aleatória
-            noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/200/300");
+            noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/1920/1280");
 
             // Escolhe uma categoria aleatória
             noticia.setCategoria(cats.get(random.nextInt(cats.size())));

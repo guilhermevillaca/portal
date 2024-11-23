@@ -8,6 +8,10 @@
     text-decoration: underline;
 }
 
+.listaNoticias img{
+    max-width: 200px;
+  
+}
 .ultimaNoticia img{
-    max-width: 100%;
+    max-width: 1000px;
 }
