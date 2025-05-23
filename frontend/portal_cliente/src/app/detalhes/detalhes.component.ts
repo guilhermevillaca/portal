@@ -28,6 +28,9 @@ export class DetalhesComponent implements OnInit{
     this.noticia = await lastValueFrom(this.noticiaService.getById(this.id));
   }
   
+  public soma(a: any, b: any){
+    return a + b;
+  }
   
  
 

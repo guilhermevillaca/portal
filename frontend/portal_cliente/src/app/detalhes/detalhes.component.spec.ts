@@ -15,6 +15,8 @@ describe('DetalhesComponent', () => {
     fixture = TestBed.createComponent(DetalhesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    let result = component.soma(5, 10);
+    console.log(result);
   });
 
   it('should create', () => {
