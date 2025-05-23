@@ -6,6 +6,7 @@ import { Categoria } from '../../model/categoria.model';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgFor } from '@angular/common';
 
+
 @Component({
   selector: 'app-categoria-form',
   standalone: true,

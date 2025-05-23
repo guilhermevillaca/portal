@@ -1,13 +1,13 @@
-import { NgFor, SlicePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { NoticiaService } from '../service/noticia.service';
 import { lastValueFrom } from 'rxjs';
+import { NgFor, SlicePipe } from '@angular/common';
 
 @Component({
   selector: 'app-noticia',
   standalone: true,
-  imports: [NgFor, RouterModule, SlicePipe],
+  imports: [RouterModule, NgFor, SlicePipe ],
   templateUrl: './noticia.component.html',
   styleUrl: './noticia.component.css'
 })

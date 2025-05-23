@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
@@ -6,6 +5,7 @@ import { NoticiaService } from '../../service/noticia.service';
 import { lastValueFrom } from 'rxjs';
 import { Noticia } from '../../model/noticia.model';
 import { CategoriaService } from '../../service/categoria.service';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-noticia-form',
