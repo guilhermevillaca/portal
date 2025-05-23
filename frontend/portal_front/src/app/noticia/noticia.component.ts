@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
 import { NoticiaService } from '../service/noticia.service';
 import { lastValueFrom } from 'rxjs';
 import { NgFor, SlicePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { Router } from 'express';
+
 
 @Component({
-  selector: 'app-noticia',
-  standalone: true,
-  imports: [RouterModule, NgFor, SlicePipe ],
-  templateUrl: './noticia.component.html',
-  styleUrl: './noticia.component.css'
+    standalone: true,
+    selector: 'app-noticia',
+    imports: [RouterModule, NgFor, SlicePipe],
+    templateUrl: './noticia.component.html',
+    styleUrl: './noticia.component.css'
 })
 export class NoticiaComponent implements OnInit {
   noticia$: any;

@@ -8,14 +8,14 @@ import { CategoriaService } from '../../service/categoria.service';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-noticia-form',
-  standalone: true,
-  imports: [FormsModule,
-    ReactiveFormsModule,
-    NgFor,
-    RouterModule],
-  templateUrl: './noticia-form.component.html',
-  styleUrl: './noticia-form.component.css'
+    standalone: true,
+    selector: 'app-noticia-form',
+    imports: [FormsModule,
+        ReactiveFormsModule,
+        NgFor,
+        RouterModule],
+    templateUrl: './noticia-form.component.html',
+    styleUrl: './noticia-form.component.css'
 })
 export class NoticiaFormComponent implements OnInit {
   cat$: any;

@@ -8,14 +8,13 @@ import { NgFor } from '@angular/common';
 
 
 @Component({
-  selector: 'app-categoria-form',
-  standalone: true,
-  imports: [FormsModule,
-    ReactiveFormsModule,
-    NgFor,
-    RouterModule],
-  templateUrl: './categoria-form.component.html',
-  styleUrl: './categoria-form.component.css'
+    selector: 'app-categoria-form',
+    imports: [FormsModule,
+        ReactiveFormsModule,
+        NgFor,
+        RouterModule],
+    templateUrl: './categoria-form.component.html',
+    styleUrl: './categoria-form.component.css'
 })
 export class CategoriaFormComponent implements OnInit{
 

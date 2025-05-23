@@ -5,11 +5,10 @@ import { lastValueFrom } from 'rxjs';
 import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-categoria',
-  standalone: true,
-  imports: [NgFor, RouterModule],
-  templateUrl: './categoria.component.html',
-  styleUrl: './categoria.component.css'
+    selector: 'app-categoria',
+    imports: [NgFor, RouterModule],
+    templateUrl: './categoria.component.html',
+    styleUrl: './categoria.component.css'
 })
 export class CategoriaComponent implements OnInit{
 
