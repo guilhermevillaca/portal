@@ -1,14 +1,16 @@
 
 <div class="container">
 
-  
-  <nav class="navbar navbar-expand-lg">
-    
-    <a class="navbar-brand" routerLink="">ADMIN Portal</a>
-    <a routerLink="categoria" class="btn">Categoria</a> |
-    <a routerLink="noticia" class="btn">Notícias</a> 
-    
-  </nav>
+  @if(!isLoginPage()){
+    <nav class="navbar navbar-expand-lg">
+      
+      <a class="navbar-brand" routerLink="">ADMIN Portal</a>
+      <a routerLink="categoria" class="btn">Categoria</a> |
+      <a routerLink="noticia" class="btn">Notícias</a> |
+      <a routerLink="sair" class="btn">Sair</a> 
+      
+    </nav>
+  }
   
   <router-outlet />
 </div>

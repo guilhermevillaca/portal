@@ -17,7 +17,7 @@
             <th>{{noticia.id}}</th>
             <th>{{noticia.titulo}}</th>
             <th [title]="noticia.corpo">
-                {{ noticia.corpo | slice:0:100 }}{{ noticia.corpo.length > 100 ? '...' : '' }}
+                {{ noticia.corpo | slice:0:100 }}{{ noticia.corpo?.length > 100 ? '...' : '' }}
             </th>
             <th>{{noticia.categoria?.nome}}</th>
             <th>

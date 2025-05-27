@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NoticiaService } from '../service/noticia.service';
 import { lastValueFrom } from 'rxjs';
 import { NgFor, SlicePipe } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { Router } from 'express';
+import { Router, RouterModule } from '@angular/router';
+
 
 
 @Component({
