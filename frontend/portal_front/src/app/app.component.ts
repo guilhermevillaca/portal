@@ -3,7 +3,7 @@ import { Router, RouterLink, RouterLinkActive, RouterModule, RouterOutlet } from
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, RouterModule, RouterLink, RouterLinkActive],
+    imports: [RouterOutlet, RouterModule, RouterLink],
     templateUrl: './app.component.html',
     styleUrl: './app.component.css'
 })
