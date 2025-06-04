@@ -16,14 +16,7 @@ export class LoginComponent {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       senha: ['', Validators.required]
-    });
-
-    // Loga os valores e status sempre que mudar algo no formulário
-    /*this.loginForm.valueChanges.subscribe(value => {
-      console.log('Form values:', value);
-      console.log('Form valid:', this.loginForm.valid);
-    });*/
-
+    }); 
   }
 
   onSubmit(): void {
