@@ -8,7 +8,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -29,9 +28,8 @@ public class Noticia {
 
     @Column(name="titulo")
     private String titulo;
-
-    @Lob
-    @Column(name="corpo")
+    
+    @Column(name="corpo", columnDefinition = "TEXT")
     private String corpo;
 
     @Column(name="data_publicacao")
@@ -47,5 +45,8 @@ public class Noticia {
     @JoinColumn(name="autor_id", referencedColumnName="id")
     @ManyToOne
     private Autor autor;
+
+    @Column(name="destaque")
+    private boolean destaque;
 
 }

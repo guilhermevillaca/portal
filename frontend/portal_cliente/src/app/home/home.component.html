@@ -1,32 +1,68 @@
-<div class="ultimaNoticia">
+<div class="portal-container">
+
+  <!-- Sidebar esquerda -->
+  <aside class="sidebar esquerda">
+    <h5>Sidebar Esquerda</h5>
+    <!-- publicidade, links, categorias, etc. -->
+  </aside>
+
+  <!-- Conteúdo principal -->
+  <main class="conteudo">
+
+    <!-- Última notícia (destaque) -->
+    <div class="ultimaNoticia" *ngIf="ultimaNoticia">
+      <a class="linkNoticia destaque" (click)="abrirDetalhes(ultimaNoticia.id)">
+        <img [src]="ultimaNoticia.imagem_url" [alt]="ultimaNoticia.titulo">
+        <h2>{{ultimaNoticia.titulo}}</h2>
+        <p>{{ultimaNoticia.corpo}}</p>
+      </a>
+    </div>
+
+    <hr>
+
+    <!-- Lista de notícias >
+    <div class="listaNoticias" *ngFor="let noticia of noticia$">
+      <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
+        <img [src]="noticia.imagem_url" [alt]="noticia.titulo">
+        <div>
+          <h4>{{noticia.titulo}}</h4>
+          <p>{{noticia.corpo}}</p>
+        </div>
+      </a>
+    </div>
+
+    <!- Paginação ->
+    <div class="paginacao">
+      <button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">Anterior</button>
+      <span>Página {{paginaAtual}}</span>
+      <button (click)="proximaPagina()">Próxima</button>
+    </div-->
 
 
 
-  <a class="linkNoticia" (click)="abrirDetalhes(ultimaNoticia.id)">
+    <!-- Lista paginada -->
+    <div *ngFor="let noticia of noticiasPaginadas" class="listaNoticias">
+      <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
+        <img src="{{noticia.imagem_url}}" alt="{{noticia.titulo}}">
+        <h4>{{noticia.titulo}}</h4>
+        <p>{{noticia.corpo  | slice:0:100 }}</p>
+      </a>
+    </div>
 
-    <img src="{{ultimaNoticia?.imagem_url}}" alt="{{ultimaNoticia?.titulo}}">
-
-    <h4>{{ultimaNoticia?.titulo}}</h4>
-    
-    <p>{{ultimaNoticia?.corpo}}</p>
-  </a>
-
-</div>
+    <!-- Controles -->
+    <div class="paginacao">
+      <button (click)="paginaAnterior()" [disabled]="paginaAtual === 1">Anterior</button>
+      <span>Página {{paginaAtual}} de {{totalPaginas}}</span>
+      <button (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">Próxima</button>
+    </div>
 
 
-<hr>
+  </main>
 
-<div *ngFor="let noticia of noticia$" class="listaNoticias">    
-
-    
-
-    <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
-
-      <img src="{{noticia?.imagem_url}}" alt="{{noticia.titulo}}">
-
-      <h4>{{noticia.titulo}}</h4>
-      
-      <p>{{noticia.corpo}}</p>
-    </a>
+  <!-- Sidebar direita -->
+  <aside class="sidebar direita">
+    <h5>Sidebar Direita</h5>
+    <!-- banners, notícias populares, etc. -->
+  </aside>
 
 </div>

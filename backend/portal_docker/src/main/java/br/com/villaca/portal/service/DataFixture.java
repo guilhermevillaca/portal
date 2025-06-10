@@ -1,6 +1,7 @@
 package br.com.villaca.portal.service;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
@@ -17,16 +18,19 @@ import br.com.villaca.portal.modelo.Autor;
 import br.com.villaca.portal.modelo.Categoria;
 import br.com.villaca.portal.modelo.Noticia;
 import br.com.villaca.portal.modelo.Pessoa;
+import br.com.villaca.portal.modelo.Posicao;
+import br.com.villaca.portal.modelo.Publicidade;
 import br.com.villaca.portal.modelo.Usuario;
 import br.com.villaca.portal.repository.AutorRepository;
 import br.com.villaca.portal.repository.CategoriaRepository;
 import br.com.villaca.portal.repository.NoticiaRepository;
 import br.com.villaca.portal.repository.PessoaRepository;
+import br.com.villaca.portal.repository.PosicaoRepository;
+import br.com.villaca.portal.repository.PublicidadeRepository;
 import br.com.villaca.portal.repository.UsuarioRepository;
 
-
 @Component
-public class DataFixture implements CommandLineRunner{
+public class DataFixture implements CommandLineRunner {
 
     @Autowired
     CategoriaRepository categoriaRepository;
@@ -43,9 +47,17 @@ public class DataFixture implements CommandLineRunner{
     @Autowired
     NoticiaRepository noticiaRepository;
 
+    @Autowired
+    PosicaoRepository posicaoRepository;
+
+    @Autowired
+    PublicidadeRepository publicidadeRepository;
+
     @Override
     public void run(String... args) throws Exception {
-        
+
+        // Gerador de números aleatórios
+        Random random = new Random();
 
         Categoria categoria = new Categoria();
         categoria.setNome("Esportes");
@@ -81,7 +93,6 @@ public class DataFixture implements CommandLineRunner{
         usuario.setPessoa(pessoa2);
         usuarioRepository.save(usuario);
 
-                
         Lorem lorem = LoremIpsum.getInstance();
 
         Noticia noticia1 = new Noticia();
@@ -90,10 +101,9 @@ public class DataFixture implements CommandLineRunner{
         noticia1.setCorpo(lorem.getParagraphs(3, 6));
         noticia1.setCategoria(categoria2);
         noticia1.setDataPublicacao(LocalDate.now());
+        noticia1.setImagem_url("https://picsum.photos/id/" + (random.nextInt(50) + 1) + "/1920/1280");
+        noticia1.setDestaque(true);
         noticiaRepository.save(noticia1);
-
-
-
 
         Categoria cat1 = new Categoria("Tecnologia", "Notícias sobre tecnologia", null, true);
         categoriaRepository.save(cat1);
@@ -112,21 +122,19 @@ public class DataFixture implements CommandLineRunner{
         categoriaRepository.save(cat7);
         Categoria cat8 = new Categoria("Futebol", "Noticia sobre futebol", cat1, false);
         categoriaRepository.save(cat8);
-        Categoria cat9 = new Categoria("Campeonato Brasileiro Série A", "Noticias sobre o campeonato brasileiro", cat8, false);
+        Categoria cat9 = new Categoria("Campeonato Brasileiro Série A", "Noticias sobre o campeonato brasileiro", cat8,
+                false);
         categoriaRepository.save(cat9);
         Categoria cat10 = new Categoria("Libertadores", "Notícias sobre a Libertadores", cat8, false);
         categoriaRepository.save(cat10);
 
         List<Categoria> cats = Arrays.asList(cat1, cat2, cat3, cat4, cat5, cat6, cat7, cat8, cat9, cat10);
 
-         // Gerador de números aleatórios
-        Random random = new Random();
-
         // Criação das 20 instâncias de Noticia com valores aleatórios
         for (int i = 1; i <= 20; i++) {
             Noticia noticia = new Noticia();
 
-            // Geração de valores aleatórios para os atributos            
+            // Geração de valores aleatórios para os atributos
             noticia.setTitulo(lorem.getTitle(4));
             noticia.setCorpo(lorem.getParagraphs(3, 8));
 
@@ -136,7 +144,7 @@ public class DataFixture implements CommandLineRunner{
             noticia.setDataPublicacao(LocalDate.now());
 
             // URL de imagem aleatória
-            noticia.setImagem_url("https://picsum.photos/id/"+ (random.nextInt(50) + 1) + "/1920/1280");
+            noticia.setImagem_url("https://picsum.photos/id/" + (random.nextInt(50) + 1) + "/1920/1280");
 
             // Escolhe uma categoria aleatória
             noticia.setCategoria(cats.get(random.nextInt(cats.size())));
@@ -168,7 +176,67 @@ public class DataFixture implements CommandLineRunner{
 
         System.out.println("----------All Data saved into Database----------------------");
 
+        System.out.println("inserindo publi");
+
+        List<Posicao> posicoes = new ArrayList<>();
+        posicoes.add(new Posicao("Topo"));
+        posicoes.add(new Posicao("Rodapé"));
+        posicoes.add(new Posicao("Sidebar Esquerda"));
+        posicoes.add(new Posicao("Sidebar Direita"));
+        posicaoRepository.saveAll(posicoes);
+
+        Publicidade pub1 = new Publicidade(
+                "Anúncio de Curso Java",
+                "https://picsum.photos/1200/200",
+                "https://cursos.meusite.com/java",
+                LocalDate.of(2025, 6, 1),
+                LocalDate.of(2025, 7, 1),
+                true,
+                posicaoRepository.findById(1).get(),
+                cat8 // Apenas ID necessário
+        );
+
+        publicidadeRepository.save(pub1);
+
+        Publicidade pub2 = new Publicidade(
+                "Promoção de Hospedagem",
+                "https://picsum.photos/1000/150",
+                "https://hospedagem.com/promo",
+                LocalDate.of(2025, 6, 5),
+                LocalDate.of(2025, 8, 1),
+                true,
+                posicaoRepository.findById(2).get(),
+                cat1);
+
+        publicidadeRepository.save(pub2);
+
+        Publicidade pub3 = new Publicidade(
+                "Anuncie no nosso portal!",
+                "https://picsum.photos/300/600",
+                "https://meusite.com/contato",
+                LocalDate.of(2025, 6, 1),
+                LocalDate.of(2025, 12, 31),
+                true,
+                posicaoRepository.findById(3).get(),
+                cat2);
+
+        publicidadeRepository.save(pub3);
+
+
+        Publicidade pub4 = new Publicidade(
+                "Seja Sócio!",
+                "https://picsum.photos/300/250",
+                "https://meusite.com/contato",
+                LocalDate.of(2025, 6, 1),
+                LocalDate.of(2025, 12, 31),
+                true,
+                posicaoRepository.findById(4).get(),
+                cat2);
+
+        publicidadeRepository.save(pub4);
+
+        System.out.println("fim inserindo publi");
+
     }
 
 }
-

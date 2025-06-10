@@ -61,9 +61,12 @@ export class CategoriaComponent implements OnInit {
     let y = 30;
 
     this.categoria$.forEach((categoria: Categoria) => {
+      const descricao = categoria.descricao ?? '';
+      const descricaoQuebrada = doc.splitTextToSize(descricao, 55); // largura máxima: 55
+
       doc.text(String(categoria.id ?? ''), 10, y);
       doc.text(categoria.nome ?? '', 30, y);
-      doc.text(categoria.descricao ?? '', 90, y);
+      doc.text(doc.splitTextToSize(categoria.descricao ?? '', 55) ?? '', 90, y);
       doc.text(categoria.categoria?.nome ?? '', 150, y);
       y += 10;
 
