@@ -6,6 +6,7 @@ import { CategoriaService } from '../service/categoria.service';
 import { NgFor, NgIf, SlicePipe } from '@angular/common';
 import { Noticia } from '../model/noticia.model';
 import { PublicidadeService } from '../service/publicidade.service';
+import { Publicidade } from '../model/publicidade.model';
 
 @Component({
   selector: 'app-home',
@@ -27,7 +28,7 @@ export class HomeComponent implements OnInit {
   itensPorPagina: number = 5;
   totalPaginas: number = 0;
 
-  publicidadeTopo: any;
+  publicidadeTopo?: Publicidade;
 
 
   constructor(private noticiaService: NoticiaService, private categoriaService: CategoriaService,
@@ -43,7 +44,7 @@ export class HomeComponent implements OnInit {
     });
 
     this.publicidadeService.getPorPosicao('topo').subscribe(data => {
-      this.publicidadeTopo = data;
+      this.publicidadeTopo = data[0];
     });
 
   }

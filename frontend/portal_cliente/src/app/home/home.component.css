@@ -75,3 +75,23 @@
   display: block;
   border-radius: 8px;
 }
+
+
+.publi {
+  width: 100%;          
+  max-width: 600px;     
+  margin: 0 auto;       
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc; 
+  background-color: #f9f9f9;
+  text-align: center;   
+}
+
+.publi img {
+  max-width: 100%;      
+  height: auto;         
+  display: block;
+  margin: 0 auto;       
+  border-radius: 4px;   
+}

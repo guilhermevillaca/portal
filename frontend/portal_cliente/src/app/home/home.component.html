@@ -9,6 +9,12 @@
   <!-- Conteúdo principal -->
   <main class="conteudo">
 
+    <div class="publi">
+      <a href="{{publicidadeTopo?.linkDestino}}" target="_blank">
+        <img src="{{publicidadeTopo?.imagemUrl}}" alt="{{publicidadeTopo?.titulo}}">      
+      </a>
+    </div>
+
     <!-- Última notícia (destaque) -->
     <div class="ultimaNoticia" *ngIf="ultimaNoticia">
       <a class="linkNoticia destaque" (click)="abrirDetalhes(ultimaNoticia.id)">
