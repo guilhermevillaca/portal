@@ -4,6 +4,9 @@
   <aside class="sidebar esquerda">
     <h5>Sidebar Esquerda</h5>
     <!-- publicidade, links, categorias, etc. -->
+    <a href="{{publicidadeSidebarE?.linkDestino}}" target="_blank">
+      <img src="{{publicidadeSidebarE?.imagemUrl}}" alt="{{publicidadeSidebarE?.titulo}}">
+    </a>
   </aside>
 
   <!-- Conteúdo principal -->
@@ -11,7 +14,7 @@
 
     <div class="publi">
       <a href="{{publicidadeTopo?.linkDestino}}" target="_blank">
-        <img src="{{publicidadeTopo?.imagemUrl}}" alt="{{publicidadeTopo?.titulo}}">      
+        <img src="{{publicidadeTopo?.imagemUrl}}" alt="{{publicidadeTopo?.titulo}}">
       </a>
     </div>
 
@@ -51,7 +54,7 @@
       <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
         <img src="{{noticia.imagem_url}}" alt="{{noticia.titulo}}">
         <h4>{{noticia.titulo}}</h4>
-        <p>{{noticia.corpo  | slice:0:100 }}</p>
+        <p>{{noticia.corpo | slice:0:100 }}</p>
       </a>
     </div>
 
@@ -62,6 +65,11 @@
       <button (click)="proximaPagina()" [disabled]="paginaAtual === totalPaginas">Próxima</button>
     </div>
 
+    <div class="publi">
+      <a href="{{publicidadeRodape?.linkDestino}}" target="_blank">
+        <img src="{{publicidadeRodape?.imagemUrl}}" alt="{{publicidadeRodape?.titulo}}">
+      </a>
+    </div>
 
   </main>
 
@@ -69,6 +77,9 @@
   <aside class="sidebar direita">
     <h5>Sidebar Direita</h5>
     <!-- banners, notícias populares, etc. -->
+     <a href="{{publicidadeSidebarD?.linkDestino}}" target="_blank">
+      <img src="{{publicidadeSidebarD?.imagemUrl}}" alt="{{publicidadeSidebarD?.titulo}}">
+    </a>
   </aside>
 
 </div>

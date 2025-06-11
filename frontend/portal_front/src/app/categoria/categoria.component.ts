@@ -2,16 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../service/categoria.service';
 import { Router, RouterModule } from '@angular/router';
 import { lastValueFrom } from 'rxjs';
-import { NgFor } from '@angular/common';
+import { CommonModule, NgFor } from '@angular/common';
 import jsPDF from 'jspdf';
 import { Categoria } from '../model/categoria.model';
 
 
 @Component({
   selector: 'app-categoria',
-  imports: [NgFor, RouterModule],
+  imports: [RouterModule],
   templateUrl: './categoria.component.html',
-  styleUrl: './categoria.component.css'
+  styleUrl: './categoria.component.css',
+  standalone: true
 })
 export class CategoriaComponent implements OnInit {
 

@@ -179,15 +179,15 @@ public class DataFixture implements CommandLineRunner {
         System.out.println("inserindo publi");
 
         List<Posicao> posicoes = new ArrayList<>();
-        posicoes.add(new Posicao("Topo"));
-        posicoes.add(new Posicao("Rodapé"));
-        posicoes.add(new Posicao("Sidebar Esquerda"));
-        posicoes.add(new Posicao("Sidebar Direita"));
+        posicoes.add(new Posicao("topo"));
+        posicoes.add(new Posicao("rodape"));
+        posicoes.add(new Posicao("sidebar_esquerda"));
+        posicoes.add(new Posicao("sidebar_direita"));
         posicaoRepository.saveAll(posicoes);
 
         Publicidade pub1 = new Publicidade(
                 "Anúncio de Curso Java",
-                "https://picsum.photos/1200/200",
+                "https://placehold.co/1200x200?text=Publicidade+Topo",
                 "https://cursos.meusite.com/java",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 7, 1),
@@ -200,7 +200,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub2 = new Publicidade(
                 "Promoção de Hospedagem",
-                "https://picsum.photos/1000/150",
+                "https://placehold.co/1000x150?text=Publicidade+Rodapé",
                 "https://hospedagem.com/promo",
                 LocalDate.of(2025, 6, 5),
                 LocalDate.of(2025, 8, 1),
@@ -212,7 +212,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub3 = new Publicidade(
                 "Anuncie no nosso portal!",
-                "https://picsum.photos/300/600",
+                "https://placehold.co/300x600?text=Sidebar+Esquerda",
                 "https://meusite.com/contato",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 12, 31),
@@ -225,7 +225,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub4 = new Publicidade(
                 "Seja Sócio!",
-                "https://picsum.photos/300/250",
+                "https://placehold.co/300x250?text=Sidebar+Direita",
                 "https://meusite.com/contato",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 12, 31),

@@ -1,5 +1,3 @@
-
-
 <a routerLink="novo" class="btn btn-primary left">Novo</a>
 <a (click)="relatorio()" class="btn btn-secondary left" style="margin-left: 10px;">Relatório</a>
 
@@ -22,10 +20,24 @@
             <th>{{cat.descricao}}</th>
             <th>{{cat.categoria?.nome}}</th>
             <th>
-                <a (click)="editar(cat.id)"  class="btn btn-primary">Editar</a>&nbsp;
-                <a (click)="remover(cat.id)" class="btn btn-danger">Excluir</a>                
+                <a (click)="editar(cat.id)" class="btn btn-primary">Editar</a>&nbsp;
+                <a (click)="remover(cat.id)" class="btn btn-danger">Excluir</a>
             </th>
         </tr>
+
+        @for (cat of categoria$; track cat.id) {
+        <tr>
+            <th>{{cat.id}}</th>
+            <th>{{cat.nome}}</th>
+            <th>{{cat.descricao}}</th>
+            <th>{{cat.categoria?.nome}}</th>
+            <th>
+                <a (click)="editar(cat.id)" class="btn btn-primary">Editar</a>&nbsp;
+                <a (click)="remover(cat.id)" class="btn btn-danger">Excluir</a>
+            </th>
+        </tr>
+        }
+
     </tbody>
 
 </table>

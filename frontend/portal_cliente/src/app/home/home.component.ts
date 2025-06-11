@@ -29,6 +29,9 @@ export class HomeComponent implements OnInit {
   totalPaginas: number = 0;
 
   publicidadeTopo?: Publicidade;
+  publicidadeRodape?: Publicidade;
+  publicidadeSidebarE?: Publicidade;
+  publicidadeSidebarD?: Publicidade;
 
 
   constructor(private noticiaService: NoticiaService, private categoriaService: CategoriaService,
@@ -45,6 +48,18 @@ export class HomeComponent implements OnInit {
 
     this.publicidadeService.getPorPosicao('topo').subscribe(data => {
       this.publicidadeTopo = data[0];
+    });
+
+    this.publicidadeService.getPorPosicao('rodape').subscribe(data => {
+      this.publicidadeRodape = data[0];
+    });
+
+    this.publicidadeService.getPorPosicao('sidebar_esquerda').subscribe(data => {
+      this.publicidadeSidebarE = data[0];
+    });
+
+    this.publicidadeService.getPorPosicao('sidebar_direita').subscribe(data => {
+      this.publicidadeSidebarD = data[0];
     });
 
   }
