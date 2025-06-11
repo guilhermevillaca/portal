@@ -7,11 +7,12 @@ import { NgFor, NgIf, SlicePipe } from '@angular/common';
 import { Noticia } from '../model/noticia.model';
 import { PublicidadeService } from '../service/publicidade.service';
 import { Publicidade } from '../model/publicidade.model';
+import { SmartSlicePipe } from '../shared/smart-slice.pipe';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NgFor, RouterModule, NgIf, SlicePipe],
+  imports: [NgFor, RouterModule, NgIf, SmartSlicePipe],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

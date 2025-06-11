@@ -187,7 +187,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub1 = new Publicidade(
                 "Anúncio de Curso Java",
-                "https://placehold.co/1200x200?text=Publicidade+Topo",
+                "https://placehold.co/1200x200/purple/black?text=Publicidade+Topo",
                 "https://cursos.meusite.com/java",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 7, 1),
@@ -200,7 +200,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub2 = new Publicidade(
                 "Promoção de Hospedagem",
-                "https://placehold.co/1000x150?text=Publicidade+Rodapé",
+                "https://placehold.co/1000x150/black/red?text=Publicidade+Rodap%C3%A9",
                 "https://hospedagem.com/promo",
                 LocalDate.of(2025, 6, 5),
                 LocalDate.of(2025, 8, 1),
@@ -212,7 +212,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub3 = new Publicidade(
                 "Anuncie no nosso portal!",
-                "https://placehold.co/300x600?text=Sidebar+Esquerda",
+                "https://placehold.co/300x600/orange/gray?text=Publicidade+Sidebar+Esquerda",
                 "https://meusite.com/contato",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 12, 31),
@@ -225,7 +225,7 @@ public class DataFixture implements CommandLineRunner {
 
         Publicidade pub4 = new Publicidade(
                 "Seja Sócio!",
-                "https://placehold.co/300x250?text=Sidebar+Direita",
+                "https://placehold.co/300x250/green/pink?text=Publicidade+Sidebar+Direita",
                 "https://meusite.com/contato",
                 LocalDate.of(2025, 6, 1),
                 LocalDate.of(2025, 12, 31),

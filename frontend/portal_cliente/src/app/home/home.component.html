@@ -23,7 +23,7 @@
       <a class="linkNoticia destaque" (click)="abrirDetalhes(ultimaNoticia.id)">
         <img [src]="ultimaNoticia.imagem_url" [alt]="ultimaNoticia.titulo">
         <h2>{{ultimaNoticia.titulo}}</h2>
-        <p>{{ultimaNoticia.corpo}}</p>
+        <p>{{ultimaNoticia.corpo | smartSlice:100}}</p>
       </a>
     </div>
 
@@ -54,7 +54,7 @@
       <a class="linkNoticia" (click)="abrirDetalhes(noticia.id)">
         <img src="{{noticia.imagem_url}}" alt="{{noticia.titulo}}">
         <h4>{{noticia.titulo}}</h4>
-        <p>{{noticia.corpo | slice:0:100 }}</p>
+        <p>{{noticia.corpo | smartSlice:100 }}</p>
       </a>
     </div>
 
